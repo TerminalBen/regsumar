@@ -11,18 +11,21 @@ router.get('/', express.json(), async (req, res) => {
     return res.json(
         sumarios.map((sumario) => ({
             id: sumario.id,
-            descricao: sumario.descricao,
-            titulo: sumario.titulo,
             id_disciplina: sumario.id_disciplina,
+            titulo: sumario.titulo,
             nr_aula: sumario.nr_aula,
+            validate:sumario.validate,
+            data:sumario.data,
+            descricao: sumario.descricao,
+        
         }))
     )
 });
 
 router.post('/new', express.json(), async (req, res) => {
-    const { titulo, descricao, nr_aula,id_disciplina } = req.body
-    const novo = await Regsumar.postSumario(titulo, descricao, nr_aula, id_disciplina)
-    if (!novo) return res.sendStatus(404)
+    const { id_disciplina, titulo, nr_aula, validate, data, descricao} = req.body
+    const novo = await Regsumar.postSumario(id_disciplina, titulo, nr_aula, validate, data, descricao)
+    if (!novo) return res.sendStatus(500)
     return res.json("Sucess!")
 });
 

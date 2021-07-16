@@ -51,19 +51,25 @@ create table sumario(
     validate boolean,
     data Date,
     descricao varchar(255),
-    foreign key (id_disciplina) references Disciplina(id)
+    foreign key (id_disciplina) references disciplina(id)
 );
 
 insert into Curso (id,cod_curso,name,duration,description,responsavel) values(1,1,'LEIT',4,'Eng. Informatica','Sydney');
 insert into docente(id,name,cod_docente,degree,password,email,short_name,cod_curso)values(1,'paulo',1,'mestre','12345','paulo@123.uta.cv','ps',1);
 insert into docente(id,name,cod_docente,degree,password,email,short_name,cod_curso)values(2,'luis',2,'mestre','12345','luis@123.uta.cv','la',1);
 insert into Curso (id,cod_curso,name,duration,description,responsavel) values(2,2,'LEE',4,'Eng. Eletronica','Joao');
-insert into disciplina(id,id_turma,id_docente,id_curso,nome,descrição) values(1,1,1,1,'Engenharia de software','programaçao geral');
-insert into disciplina(id,id_turma,id_docente,id_curso,nome,descrição) values(2,1,2,2,'Lógica de Circuitos','circuitos');
-insert into disciplina(id,id_turma,id_docente,id_curso,nome,descrição) values(3,2,1,1,'Programação Objectos','estudo de programaçao orientada a objectos');
-insert into disciplina(id,id_turma,id_docente,id_curso,nome,descrição) values(4,3,2,2,'Sistemas digitais','SD È para fracos');
-insert into disciplina(id,id_turma,id_docente,id_curso,nome,descrição) values(5,4,2,2,'Sistemas e sinais','Sinais de Tv?');
+insert into disciplina(id,nome,descricao,id_docente,id_curso,id_turma) values(1,'Engenharia de software','programaçao geral',1,1,1);
+insert into disciplina(id,nome,descricao,id_docente,id_curso,id_turma) values(2,'Logica de circuitos','programaçao de Circuitos Eletronicos',1,1,2);
+insert into disciplina(id,nome,descricao,id_docente,id_curso,id_turma) values(3,'Programaçao Orientada aos Objectos','programaçao paradigma OO',1,1,3);
+insert into disciplina(id,nome,descricao,id_docente,id_curso,id_turma) values(4,'Sistemas e Sinais','Estudo de Sinais e frequencias',2,1,4);
+insert into disciplina(id,nome,descricao,id_docente,id_curso,id_turma) values(5,'Sistemas Digitais','Estudo de sistemas digitais e Analogos',2,2,2);
 insert into turma(id,cod_curso,id_docente,ano) values (1,1,1,2020);
 insert into turma(id,cod_curso,id_docente,ano) values (2,1,2,2020);
 insert into turma(id,cod_curso,id_docente,ano) values (3,2,1,2020);
 insert into turma(id,cod_curso,id_docente,ano) values (4,2,2,2020);
+insert into sumario(id,id_disciplina, titulo,nr_aula,validate,data,descricao) values(1,1,'introduçao ao react',1,true,'12/03/2020','introduçao ao react 1/4');
+insert into sumario(id,id_disciplina, titulo,nr_aula,validate,data,descricao) values(2,1,'introduçao ao react',2,true,'12/03/2020','introduçao ao react 2/4');
+insert into sumario(id,id_disciplina, titulo,nr_aula,validate,data,descricao) values(3,1,'introduçao ao react',3,true,'12/03/2020','introduçao ao react 3/4');
+insert into sumario(id,id_disciplina, titulo,nr_aula,validate,data,descricao) values(4,2,'Introduçao as tranformadas Z 1',1,true,'12/03/2020','intro tranf. Z 1/2');
+insert into sumario(id,id_disciplina, titulo,nr_aula,validate,data,descricao) values(5,2,'introduçao as tranformadas Z 2',2,true,'12/03/2020','intro tranf. Z 2/2');
+insert into sumario(id,id_disciplina, titulo,nr_aula,validate,data,descricao) values(6,2,'introduçao as tranformadas Z 2',2,true,'12/03/2020','intro tranf. Z 2/2');

@@ -1,15 +1,16 @@
 const DB = require('./db')
 
 class Regsumar {
-    static GetDocentes = async () => {
-		const sql = `select * from docente`
 
-		const results = await DB.Select(sql)
-		return results
+     static GetDocentes = async () => {
+	 	const sql = `select * from docente`
+
+	 	const results = await DB.Select(sql)
+	 	return results
 	}	
 
 	static GetCursos = async () => {
-		const sql = `select * from curso`
+		const sql = `select * from Curso`
 
 		const results =  await DB.Select(sql)
 		return results
@@ -29,15 +30,15 @@ class Regsumar {
 		return results
 	}
 
-	static postSumario = async () => {
-		const sql = `insert into sumario(id_disciplina,titulo,nr_aula,descricao) values(${titulo},${nr_aula},${descricao});`
-
+	static postSumario = async (id_disciplina,titulo,nr_aula,validate,data,descricao) => {
+		const sql = `insert into sumario (id_disciplina,titulo,nr_aula,validate,data,descricao) values(${id_disciplina},"${titulo}",${nr_aula},${validate},"${data}","${descricao}");`
 		const results = await DB.Insert(sql)
 		return results
+		
 	}
 
 	static deleteSumario = async(id) => {
-		const sql = 'delete from sumario where id = ${id}'
+		const sql = `delete from sumario where id = ${id}`
 		const results = await DB.Delete(sql)
 		return results
 	}
